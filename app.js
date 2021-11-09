@@ -5,6 +5,7 @@
 let myLeads =[];
 const inputBtn = document.getElementById("input-btn");
 const inputEl = document.getElementById("input-el");
+const ulEl = document.getElementById("ul-el");
 
 //using addEventListener
 inputBtn.addEventListener("click",function(){
@@ -12,4 +13,14 @@ inputBtn.addEventListener("click",function(){
     let inputValue = inputEl.value;
     myLeads.push(inputValue);
     console.log(myLeads);
+
+    //using innerHTML instead of textContent to render the saved leads using li tags
+       for(let i=0;i<myLeads.length;i++){
+       ulEl.innerHTML += "<li>" +  myLeads[i] + "</li>";
+}
 });
+
+//using innerHTML instead of textContent to render the saved leads using li tags
+for(let i=0;i<myLeads.length;i++){
+       ulEl.textContent += myLeads[i];
+}
