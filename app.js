@@ -13,13 +13,20 @@ inputBtn.addEventListener("click",function(){
     let inputValue = inputEl.value;
     myLeads.push(inputValue);
     console.log(myLeads);
+    renderLead();
+    //clearing the input field
+    inputEl.value = "";
 
+});
 
+function renderLead(){
     let listItems = "";
     //using innerHTML instead of textContent to render the saved leads using li tags
        for(let i=0;i<myLeads.length;i++){
-           
-     listItems +="<li>" + myLeads[i] + "</li>";
+    //using template strings   
+     listItems += `<li>
+                        <a target = '_blank' href='${myLeads[i]}'>" + ${myLeads[i]} + "</a>
+                    </li>`;
     //using createElement function
     //creating li element
    // const li = document.createElement("li");
@@ -29,5 +36,4 @@ inputBtn.addEventListener("click",function(){
     //ulEl.append(li);
 }
     ulEl.innerHTML = listItems;
-
-});
+}
