@@ -16,7 +16,14 @@ inputBtn.addEventListener("click",function(){
 
     //using innerHTML instead of textContent to render the saved leads using li tags
        for(let i=0;i<myLeads.length;i++){
-       ulEl.innerHTML += "<li>" +  myLeads[i] + "</li>";
+      // ulEl.innerHTML += "<li>" +  myLeads[i] + "</li>";
+    //using createElement function
+    //creating li element
+    const li = document.createElement("li");
+    //setting text content
+    li.textContent = myLeads[i] ;
+    //appending li to ulEl
+    ulEl.append(li);
 }
 });
 
