@@ -14,20 +14,20 @@ inputBtn.addEventListener("click",function(){
     myLeads.push(inputValue);
     console.log(myLeads);
 
+
+    let listItems = "";
     //using innerHTML instead of textContent to render the saved leads using li tags
        for(let i=0;i<myLeads.length;i++){
-      // ulEl.innerHTML += "<li>" +  myLeads[i] + "</li>";
+           
+     listItems +="<li>" + myLeads[i] + "</li>";
     //using createElement function
     //creating li element
-    const li = document.createElement("li");
+   // const li = document.createElement("li");
     //setting text content
-    li.textContent = myLeads[i] ;
+    //li.textContent = myLeads[i] ;
     //appending li to ulEl
-    ulEl.append(li);
+    //ulEl.append(li);
 }
-});
+    ulEl.innerHTML = listItems;
 
-//using innerHTML instead of textContent to render the saved leads using li tags
-for(let i=0;i<myLeads.length;i++){
-       ulEl.textContent += myLeads[i];
-}
+});
