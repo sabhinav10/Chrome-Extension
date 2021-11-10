@@ -25,7 +25,7 @@ function renderLead(){
        for(let i=0;i<myLeads.length;i++){
     //using template strings   
      listItems += `<li>
-                        <a target = '_blank' href='${myLeads[i]}'>" + ${myLeads[i]} + "</a>
+                        <a target = '_blank' href='${myLeads[i]}'>${myLeads[i]}</a>
                     </li>`;
     //using createElement function
     //creating li element
