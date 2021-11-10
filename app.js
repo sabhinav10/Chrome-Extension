@@ -21,7 +21,14 @@ const ulEl = document.getElementById("ul-el");
 //myLeads = JSON.stringify(myLeads);
 //verifying type of myLeads
 //console.log(typeof myLeads);
-
+//delete button
+let deleteBtn = document.getElementById("delete-btn");
+//listening to deleteBtn
+deleteBtn.addEventListener("dblclick" , function(){
+    localStorage.clear();
+    myLeads=[];
+    renderLead();
+});
 //rendering stored leads 
 let leadFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 console.log(leadFromLocalStorage);
