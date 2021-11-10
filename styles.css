@@ -19,3 +19,16 @@ button {
   padding: 10px 20px 10px 20px;
   border: none;
 }
+/*styling ul li a */
+
+ul {
+  padding: 0;
+  list-style: none;
+  margin-top: 20px;
+}
+li {
+  margin-top: 10px;
+}
+li a {
+  color: #5f9341;
+}
