@@ -6,7 +6,15 @@ let myLeads =[];
 const inputBtn = document.getElementById("input-btn");
 const inputEl = document.getElementById("input-el");
 const ulEl = document.getElementById("ul-el");
-
+const saveTabBtn = document.getElementById("savetab-btn");
+//adding event listener for saveTabBtn
+saveTabBtn.addEventListener("click", function(){    
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+        render(myLeads)
+    });
+});
 //creating the local storage
 //localStorage.setItem("myLeads","www.amazon.com");
 // console.log(localStorage.getItem("myLeads"));
