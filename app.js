@@ -7,15 +7,42 @@ const inputBtn = document.getElementById("input-btn");
 const inputEl = document.getElementById("input-el");
 const ulEl = document.getElementById("ul-el");
 
+//creating the local storage
+//localStorage.setItem("myLeads","www.amazon.com");
+// console.log(localStorage.getItem("myLeads"));
+// localStorage.clear();
+//converting to string
+//myLeads = `["www.amazon.com"]`;
+//converting to array
+//myLeads = JSON.parse(myLeads);
+//push new value to the array
+//myLeads.push("wwe.com");
+//coverting it back to string
+//myLeads = JSON.stringify(myLeads);
+//verifying type of myLeads
+//console.log(typeof myLeads);
+
+//rendering stored leads 
+let leadFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+console.log(leadFromLocalStorage);
+if(leadFromLocalStorage){
+    myLeads = leadFromLocalStorage ;
+    renderLead();
+}
 //using addEventListener
 inputBtn.addEventListener("click",function(){
     console.log("invoking function using addEventListener");
     let inputValue = inputEl.value;
     myLeads.push(inputValue);
+    //clearing the input field
+     inputEl.value = "";
+    //storing the leads in local storage
+    localStorage.setItem("myLeads",JSON.stringify(myLeads));
+    console.log(localStorage.getItem("myLeads"));
     console.log(myLeads);
     renderLead();
-    //clearing the input field
-    inputEl.value = "";
+    
+   
 
 });
 
