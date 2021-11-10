@@ -27,14 +27,14 @@ let deleteBtn = document.getElementById("delete-btn");
 deleteBtn.addEventListener("dblclick" , function(){
     localStorage.clear();
     myLeads=[];
-    renderLead();
+    render(myLeads);
 });
 //rendering stored leads 
 let leadFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 console.log(leadFromLocalStorage);
 if(leadFromLocalStorage){
     myLeads = leadFromLocalStorage ;
-    renderLead();
+    render(myLeads);
 }
 //using addEventListener
 inputBtn.addEventListener("click",function(){
@@ -47,19 +47,19 @@ inputBtn.addEventListener("click",function(){
     localStorage.setItem("myLeads",JSON.stringify(myLeads));
     console.log(localStorage.getItem("myLeads"));
     console.log(myLeads);
-    renderLead();
+    render(myLeads);
     
    
 
 });
 
-function renderLead(){
+function render(leads){
     let listItems = "";
     //using innerHTML instead of textContent to render the saved leads using li tags
-       for(let i=0;i<myLeads.length;i++){
+       for(let i=0;i<leads.length;i++){
     //using template strings   
      listItems += `<li>
-                        <a target = '_blank' href='${myLeads[i]}'>${myLeads[i]}</a>
+                        <a target = '_blank' href='${leads[i]}'>${leads[i]}</a>
                     </li>`;
     //using createElement function
     //creating li element
